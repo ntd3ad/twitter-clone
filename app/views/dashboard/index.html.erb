@@ -3,14 +3,15 @@
       <div class="mb-2 py-4">
       <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold"%>
       </div>
+      <div class="mb-3">
             <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f|%>
         <%= f.text_area :body, placeholder: "What's happening?", class: "form-control w-100 twitter-input"%>
         <div class="d-flex justify-content-end">
         <%= f.submit class: "btn btn-primary btn-xl rounded-pill"%>
         </div>
         <%end%>
-
-    <% Tweet.find_each do |tweet|%>
+</div>
+    <% Tweet.all.order(created_at: :desc).each do |tweet|%>
     <%= render "tweets/tweet", tweet: tweet %>
     <%end%>
 

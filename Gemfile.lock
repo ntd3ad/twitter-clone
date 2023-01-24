@@ -54,6 +54,8 @@ GEM
     activerecord (7.0.4.1)
       activemodel (= 7.0.4.1)
       activesupport (= 7.0.4.1)
+    activerecord-import (1.4.1)
+      activerecord (>= 4.2)
     activestorage (7.0.4.1)
       actionpack (= 7.0.4.1)
       activejob (= 7.0.4.1)
@@ -66,6 +68,22 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.698.0)
+    aws-sdk-core (3.169.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-kms (1.62.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.118.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.5.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
@@ -100,6 +118,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -109,6 +130,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jmespath (1.6.2)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     loofah (2.19.1)
@@ -121,6 +143,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
     msgpack (1.6.0)
@@ -200,6 +223,8 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -232,8 +257,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.7)
-      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -250,15 +273,19 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-import
+  aws-sdk-s3
   bootsnap
   cssbundling-rails
   debug
   devise
   factory_bot_rails
   faker
+  image_processing (~> 1.2)
   importmap-rails (~> 1.1)
   jbuilder
   jsbundling-rails
+  mini_magick (~> 4.8)
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.1)

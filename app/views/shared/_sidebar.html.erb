@@ -1,6 +1,6 @@
 
 
-                      <aside class="col side-navbar">
+                      <aside class="col side-navbar position-relative">
 
                     <%= link_to dashboard_path, class: "d-flex align-items-center " do%>
                     <div class="px-4 py-4 rounded-circle">
@@ -37,7 +37,7 @@
 
 
                     <div class="d-flex align-items-center fs-4 mb-2 px-4 py-3">
-                    <%= button_tag "Tweet", class: "btn btn-primary btn-lg rounded-pill py-2 w-100", data: {"bs-toggle": "modal", "bs-target": "#exampleModal"}  %>
+                    <%= button_tag "Tweet",  class: "btn btn-primary btn-lg rounded-pill py-2 w-100", data: {"bs-toggle": "modal", "bs-target": "#exampleModal"}  %>
                     </div>
                     <div class="d-flex align-items-center fs-4 mb-4 px-4">
                     <%=link_to 'Log out', destroy_user_session_path, data: { "turbo-method": :delete}, class:"btn btn-primary btn-lg rounded-pill py-2 w-100" %>
@@ -46,7 +46,7 @@
 
 
  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">

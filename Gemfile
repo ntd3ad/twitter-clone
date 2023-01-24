@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 gem 'sass-rails', '~> 5.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -78,3 +78,9 @@ end
 gem "devise"
 
 gem "importmap-rails", "~> 1.1"
+
+gem "activerecord-import"
+
+gem "aws-sdk-s3", require: false
+gem 'mini_magick', '~> 4.8'
+

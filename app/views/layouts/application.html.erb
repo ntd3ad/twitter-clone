@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
+  <%= favicon_link_tag asset_path("tw.png")%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -14,10 +16,10 @@
     <% if flash.any?%>
       <%= render "shared/flashes"%>
     <%end%>
-    <% if user_signed_in?%>
+    <% if user_signed_in? && !current_user.username.blank? %>
       <div class="container py-2">
         <div class="row">
-            <%= render "shared/sidebar"%>
+        <%= render "shared/sidebar"%>
 
                 <%= yield %>
         </div>
