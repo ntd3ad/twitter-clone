@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
-  <%= favicon_link_tag asset_path("tw.png")%>
+    <%= favicon_link_tag asset_path("tw.png")%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -19,14 +17,11 @@
     <% if user_signed_in? && !current_user.username.blank? %>
       <div class="container py-2">
         <div class="row">
-        <%= render "shared/sidebar"%>
-
+          <%= render "shared/sidebar"%>
                 <%= yield %>
         </div>
-
       </div>
     <%else%>
-
     <%= yield %>
     <%end%>
   </body>

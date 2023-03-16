@@ -23,6 +23,4 @@ RSpec.describe "Usernames", type: :request do
       end.to change {user.reload.username}.from(nil).to("foobar")
     end
   end
-
-
 end

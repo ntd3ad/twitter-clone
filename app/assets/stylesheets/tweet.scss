@@ -11,3 +11,32 @@ div.tweet{
 
     }
 }
+.action-links {
+    a {
+        span {
+            position: relative;
+            top: 2px;
+        }
+
+        &.views, &.retweets, &.bookmark {
+
+            &:hover {
+                color: $my-blue !important;
+            }
+
+        }
+
+        &.replies {
+            &:hover {
+                color: $green !important;
+            }
+        }
+
+        &.likes {
+            &:hover {
+                color: $light-red !important;
+            }
+        }
+
+    }
+}

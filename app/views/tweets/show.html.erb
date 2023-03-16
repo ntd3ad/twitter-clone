@@ -1,0 +1,27 @@
+
+<div class="col-7">
+    <div class = "mb-3">
+            <%= link_to :back, class: "fs-4 text-decoration-none text-black fw-semibold" do%>
+              <%= image_tag "back.png", size: "28x28", class: "me-4"%>
+              <span style="position: relative; top: 2px;">Tweet</span>
+            <% end %>
+            <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do%>
+              <div data-controller="tweet-card" data-tweet-path = "<%= tweet_path(@tweet_presenter.tweet)%>" class="d-flex tweet py-4 px-3">
+                <% avatr = @tweet_presenter.avatar %>
+                <% unless avatr.attached? %>
+                  <% avatr = 'user.png' %>
+                <%end%>
+                <div class="flex-shrink-0"><%= image_tag avatr, class: "rounded-circle", style: 'height:48px; width:48px;'%></div>
+                <div class="flex-grow-1 ms-3">
+                  <p class="fw-bolder mb-0"><%=@tweet_presenter.display_name%></p>
+                  <p class="text-muted">@<%=@tweet_presenter.username%></p>
+                  <p class="fs-2 mb-1"> <%=@tweet_presenter.body%></p>
+                  <p class="text-muted"><%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p")%> · <%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y")%> </p>
+                </div>
+              </div>
+            <% end %>
+    </div>
+</div>
+<div class="col">
+    <p> Welcome, @<%=current_user.username%>!</p>
+</div>
